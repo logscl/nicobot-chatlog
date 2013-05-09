@@ -1,0 +1,29 @@
+body {
+	padding-top: 60px;
+}
+
+.message-list {
+	list-style-type: none;
+}
+
+.message-separator {
+	border-top: 1px solid rgb(221, 221, 221);
+	height: 20px;
+	margin: 10px 0px -10px;
+	text-align: center;
+}
+
+.message-separator time {
+    background-color: rgb(255, 255, 255);
+    display: inline-block;
+    color: rgb(102, 102, 102);
+    font-style: italic;
+    padding: 0px 10px;
+    position: relative;
+    top: -11px;
+}
+
+.nick-space {
+	min-width: 150px;
+	float:left;
+}

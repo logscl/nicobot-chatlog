@@ -1,0 +1,21 @@
+@(messages: List[Message], pagination: Html)
+
+@formatTime(date: org.joda.time.DateTime) = {@(date.toString("HH:mm"))}
+@formatDay(date: org.joda.time.DateTime) = {@(date.toString("dd/MM/Y"))}
+@formatMessage(mess: String) = {@Application.formatMessage(mess)}
+@formatNick(nick: String) = {@Application.formatNick(nick)}
+
+@Application.setCurDay("") @* Clean de la var *@
+
+@main("History") {
+	<ul class="message-list">@messages.map { message =>
+	@if(!Application.getCurDay().equals(formatDay(message.timestamp).toString())) {
+		<li class="message-separator"><time>@formatDay(message.timestamp)</time></li>
+		@Application.setCurDay(formatDay(message.timestamp).toString())
+	}
+		<li><div class="nick-space">[@formatTime(message.timestamp)] &lt;@formatNick(message.username)&gt;</div> <span class="message">@formatMessage(message.message)</span></li>}
+	</ul>
+	<div class="pagination">
+		@pagination
+	</div>
+}
