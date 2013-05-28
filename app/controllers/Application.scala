@@ -73,7 +73,7 @@ object Application extends Controller {
    */
   def formatMessage(message: String): Html = {
     var out = StringEscapeUtils.escapeHtml4(message)
-    val regexUrl = """https?://[A-Za-z0-9-_]+.[A-Za-z0-9-_:;+%&?/.=]+""".r
+    val regexUrl = """https?://[A-Za-z0-9-_]+.[A-Za-z0-9-_:;+%#&?/.=]+""".r
     Html(regexUrl.replaceAllIn(out, "<a href=\"$0\">$0</a>"))
   }
 
